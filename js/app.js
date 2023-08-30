@@ -1,6 +1,6 @@
 class CalorieTracker{
    constructor(){
-    this._calorieLimit= 200;
+    this._calorieLimit= 2000;
     this._totalCalories= 0;
     this._meals= [];
     this._workouts= [];
@@ -9,7 +9,7 @@ class CalorieTracker{
     this._displayCaloriesTotal();
     this._displayCaloriesConsumed();
     this._displayCaloriesBurned();
-    this._displayCaloriesRemaining();
+    this._displayCaloriesRemaining();s
     this._displayCaloriesProgress();
      
       }
