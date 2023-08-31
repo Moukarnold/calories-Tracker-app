@@ -56,6 +56,14 @@ reset(){
   this._render();
 }
 
+setLimit(calorieLimit){
+
+  this._calorieLimit= calorieLimit;
+  this._displayCaloriesLimit();
+  this._render();
+  
+}
+
 // private methods
 
 _displayCaloriesTotal(){
@@ -210,6 +218,9 @@ constructor(){
 
    document.getElementById("reset").addEventListener("click", this._reset.bind(this));
 
+   document.getElementById("limit-form").addEventListener("submit", this._setLimit.bind(this));
+
+
 
   }
 
@@ -290,7 +301,24 @@ const bsCollapse = new bootstrap.Collapse(collapseWorkout, { toggle:true});
        document.getElementById("filter-workouts").value = "";
 
      }
+
+
+     _setLimit(e){
+        e.preventDefault();
+
+        const limit = document.getElementById("limit");
+           if(limit.value === ""){
+           alert("please add a limit");
+           return;
+               }
+
+     this._tracker.setLimit(+limit.value);
+     limit.value === "";
+       const modaEl= document.getElementById("limit-modal");
+       const modal= bootstrap.Modal.getInstance(modaEl);
+       modal.hide();
   }
+}
 
  
 
